@@ -1,0 +1,69 @@
+:root{
+  --bg:#e6ebf2; --text:#4a5568; --muted:#8a94a6; --accent:#2f80ed; --accent2:#00c6ff;
+  --light:#ffffff; --dark:#c3cad6; --error:#d64545; --ok:#2e9e5b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:var(--bg);font-family:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--text);overflow:hidden;padding:16px;
+}
+.bg-circle{position:fixed;border-radius:50%;background:var(--bg);
+  box-shadow:12px 12px 24px var(--dark),-12px -12px 24px var(--light);z-index:0}
+.bg1{width:260px;height:260px;top:-60px;left:-60px}
+.bg2{width:180px;height:180px;bottom:40px;right:8%}
+.bg3{width:90px;height:90px;top:18%;right:22%}
+
+.card{
+  position:relative;z-index:1;width:100%;max-width:380px;padding:36px 30px;border-radius:30px;
+  background:var(--bg);box-shadow:20px 20px 40px var(--dark),-20px -20px 40px var(--light);
+}
+.view{display:none;text-align:center;animation:fade .35s ease}
+.view.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.icon{width:64px;height:64px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;
+  background:var(--bg);box-shadow:6px 6px 12px var(--dark),-6px -6px 12px var(--light)}
+.icon svg{width:26px;height:26px;fill:var(--accent)}
+h1{font-size:1.6rem;font-weight:600}
+.sub{font-size:.85rem;color:var(--muted);margin:4px 0 22px}
+
+.field{position:relative;margin-bottom:16px}
+.field input{
+  width:100%;padding:14px 44px 14px 16px;border:none;outline:none;border-radius:14px;
+  background:var(--bg);color:var(--text);font-size:.92rem;font-family:inherit;
+  box-shadow:inset 5px 5px 10px var(--dark),inset -5px -5px 10px var(--light);
+  transition:box-shadow .2s;
+}
+.field input:focus{box-shadow:inset 5px 5px 10px var(--dark),inset -5px -5px 10px var(--light),0 0 0 2px rgba(47,128,237,.35)}
+.eye{position:absolute;right:12px;top:50%;transform:translateY(-50%);border:none;background:none;
+  cursor:pointer;font-size:1.05rem;opacity:.6}
+.eye:hover{opacity:1}
+
+.row{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;margin:2px 2px 20px}
+.check{display:flex;align-items:center;gap:6px;cursor:pointer;color:var(--muted)}
+.check input{accent-color:var(--accent)}
+.row a{color:var(--accent);text-decoration:none;font-weight:500}
+.row a:hover{text-decoration:underline}
+
+.btn{
+  width:100%;padding:14px;border:none;border-radius:14px;cursor:pointer;
+  font-size:.95rem;font-weight:600;font-family:inherit;color:var(--accent);background:var(--bg);
+  box-shadow:6px 6px 12px var(--dark),-6px -6px 12px var(--light);transition:all .2s;
+}
+.btn:hover{color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+.btn:active{box-shadow:inset 4px 4px 8px var(--dark),inset -4px -4px 8px var(--light)}
+.btn:disabled{opacity:.6;cursor:wait}
+
+.msg{min-height:20px;margin-top:14px;font-size:.8rem}
+.msg.error{color:var(--error)}
+.msg.ok{color:var(--ok)}
+
+.switch{margin-top:14px;display:flex;align-items:center;justify-content:center;gap:10px;
+  font-size:.78rem;color:var(--muted)}
+.round{width:34px;height:34px;border-radius:50%;border:none;cursor:pointer;font-size:1.1rem;
+  color:var(--accent);background:var(--bg);
+  box-shadow:4px 4px 8px var(--dark),-4px -4px 8px var(--light);transition:all .2s}
+.round:hover{color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+
+@media (max-width:420px){.card{padding:28px 20px}}
